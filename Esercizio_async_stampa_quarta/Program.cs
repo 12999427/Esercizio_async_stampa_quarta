@@ -6,18 +6,18 @@ namespace Esercizio_async_stampa_quarta
     {
         static async Task Main(string[] args)
         {
-            var files = new List<(string nome, int mb)> {
-                    ("file1.png", 5),
-                    ("file2.pdf", 2),
-                    ("file3.mp4", 8),
-                    ("file4.zip", 3)
+            var docs = new List<(string nome, int mb)> {
+                    ("libro1", 5),
+                    ("libro2", 2),
+                    ("libro3", 8),
+                    ("libro4", 3)
             };
 
             Console.WriteLine("=== DOWNLOAD SEQUENZIALE ===");
-            long tempoSequenziale = await SequantialPrintDocument(files);
+            long tempoSequenziale = await SequantialPrintDocument(docs);
 
             Console.WriteLine("\n=== DOWNLOAD PARALLELO ===");
-            long tempoParallelo = await ParallelPrintDocument(files);
+            long tempoParallelo = await ParallelPrintDocument(docs);
 
             Console.WriteLine("\n=== REPORT FINALE ===");
             Console.WriteLine($"Tempo sequenziale: {tempoSequenziale} ms");
